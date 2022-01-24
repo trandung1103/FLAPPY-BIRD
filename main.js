@@ -13,7 +13,7 @@ ongduoi.src="ongduoi.png";
 // đầu tiên là nạp các hình vô nha các bạn :)
 // bước 2 là tạo 1 số biến cần thiết
 
-var score=0;
+var Score=0;
 var khoangcachhaiong=100; // mình xin phép đặt tên tiếng việt để các bạn dễ hình dung
 var khoangcachdenongduoi; // biến này là khoảng cách từ đầu ống trên đến vị trí đầu ống dưới
 // tạo ra 1 object chim với tọa độ x y là 1 nữa canvas
@@ -56,7 +56,7 @@ function run(){
         if(ong[i].x ==0 )ong.splice(0,1);
         // nếu ống đụng lề trái thì xóa nó đi để tránh mảng ống
         //  bị đầy làm chậm       
-        if(ong[i].x==bird.x) score++;  
+        if(ong[i].x==bird.x) Score++;  
         // giờ làm cái khó nhất là thua  
         if(bird.y+birdimg.height==canvas.height||
         bird.x+birdimg.width>= ong[i].x && bird.x <= ong[i].x +ongtren.width
@@ -74,9 +74,9 @@ function run(){
 
 
 
-    scoreshow.innerHTML="Score: "+score;
+    scoreshow.innerHTML="Score: "+Score;
     // cho bird rơi xuống
-    bird.y+=3;
+    bird.y+=2;
     requestAnimationFrame(run);
 }
 //thêm function cho nó bay lên khi nhấn
