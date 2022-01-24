@@ -14,7 +14,7 @@ ongduoi.src="ongduoi.png";
 // bước 2 là tạo 1 số biến cần thiết
 
 var score=0;
-var khoangcachhaiong=140; // mình xin phép đặt tên tiếng việt để các bạn dễ hình dung
+var khoangcachhaiong=100; // mình xin phép đặt tên tiếng việt để các bạn dễ hình dung
 var khoangcachdenongduoi; // biến này là khoảng cách từ đầu ống trên đến vị trí đầu ống dưới
 // tạo ra 1 object chim với tọa độ x y là 1 nữa canvas
 var bird={
