@@ -7,7 +7,7 @@ var hinhnenchinh=new Image();
 var ongtren= new Image();
 var ongduoi=new Image();
 birdimg.src="bird.png";
-hinhnenchinh.src="nenchinh1.png";
+hinhnenchinh.src="nenchinh.png";
 ongtren.src="ongtren.png";
 ongduoi.src="ongduoi.png";
 // đầu tiên là nạp các hình vô nha các bạn :)
