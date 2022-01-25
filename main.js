@@ -1,4 +1,4 @@
-﻿var canvas= document.getElementById('gamezone');
+var canvas= document.getElementById('gamezone');
 var context= canvas.getContext('2d');
 var scoreshow=document.getElementById('score');
 
@@ -14,7 +14,7 @@ ongduoi.src="ongduoi.png";
 // bước 2 là tạo 1 số biến cần thiết
 
 var Score=0;
-var khoangcachhaiong=120; // mình xin phép đặt tên tiếng việt để các bạn dễ hình dung
+var khoangcachhaiong=130; // mình xin phép đặt tên tiếng việt để các bạn dễ hình dung
 var khoangcachdenongduoi; // biến này là khoảng cách từ đầu ống trên đến vị trí đầu ống dưới
 // tạo ra 1 object chim với tọa độ x y là 1 nữa canvas
 var bird={
@@ -80,8 +80,8 @@ function run(){
     requestAnimationFrame(run);
 }
 //thêm function cho nó bay lên khi nhấn
-document.addEventListener("keydown",function(){
-    bird.y-=60;   
+document.addEventListener("click",function(){
+    bird.y-=50;   
 })
 // ok khá ổn 
 // các bạn nhớ là tọa độ trên máy tính là ở gốc trên trái đi xuống dưới 
