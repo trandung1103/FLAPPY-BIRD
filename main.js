@@ -7,7 +7,7 @@ var hinhnenchinh=new Image();
 var ongtren= new Image();
 var ongduoi=new Image();
 birdimg.src="bird.png";
-hinhnenchinh.src="nenchinh.png";
+hinhnenchinh.src="nenchinh1.png";
 ongtren.src="ongtren.png";
 ongduoi.src="ongduoi.png";
 // đầu tiên là nạp các hình vô nha các bạn :)
@@ -38,14 +38,14 @@ function run(){
         context.drawImage(ongtren,ong[i].x,ong[i].y);
         // vẽ ống trên theo tọa độ của ống đó
         //  ống dưới phụ thuộc ống trên
-        context.drawImage(ongduoi,ong[i].x,ong[i].y+khoangcachdenongduoi+2);
+        context.drawImage(ongduoi,ong[i].x,ong[i].y+khoangcachdenongduoi+4);
         // mình lấy vị trí ống trên cộng khoảng cách đến
         // ống dưới vì tí nữa mình random nó lên xuống
-        ong[i].x-=3; //để ống di chuyển
+        ong[i].x--; //để ống di chuyển
 
         // lập trình thêm ống khi ống di chuyển đến giữa
         // nó sẽ tạo thêm 1 ống nữa
-        if(ong[i].x ==canvas.width/2){
+        if(ong[i].x ==125){
             ong.push({
                 x:canvas.width,
                 y:Math.floor(Math.random()*ongtren.height)-ongtren.height
@@ -56,7 +56,7 @@ function run(){
         if(ong[i].x ==0 )ong.splice(0,1);
         // nếu ống đụng lề trái thì xóa nó đi để tránh mảng ống
         //  bị đầy làm chậm       
-        if(ong[i].x==bird.x) Score++;  
+        if(ong[i].x-10==bird.x) Score++;  
         // giờ làm cái khó nhất là thua  
         if(bird.y+birdimg.height==canvas.height||
         bird.x+birdimg.width>= ong[i].x && bird.x <= ong[i].x +ongtren.width
@@ -76,12 +76,12 @@ function run(){
 
     scoreshow.innerHTML="Score: "+Score;
     // cho bird rơi xuống
-    bird.y+=2.5;
+    bird.y+=1.5;
     requestAnimationFrame(run);
 }
 //thêm function cho nó bay lên khi nhấn
 document.addEventListener("click",function(){
-    bird.y-=45;   
+    bird.y-=40;   
 })
 // ok khá ổn 
 // các bạn nhớ là tọa độ trên máy tính là ở gốc trên trái đi xuống dưới 
