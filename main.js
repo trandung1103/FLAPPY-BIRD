@@ -7,7 +7,7 @@ var hinhnenchinh=new Image();
 var ongtren= new Image();
 var ongduoi=new Image();
 birdimg.src="bird.png";
-hinhnenchinh.src="nenchinh.png";
+hinhnenchinh.src="nenchinh1.png";
 ongtren.src="ongtren.png";
 ongduoi.src="ongduoi.png";
 // đầu tiên là nạp các hình vô nha các bạn :)
@@ -18,7 +18,7 @@ var khoangcachhaiong=130; // mình xin phép đặt tên tiếng việt để c�
 var khoangcachdenongduoi; // biến này là khoảng cách từ đầu ống trên đến vị trí đầu ống dưới
 // tạo ra 1 object chim với tọa độ x y là 1 nữa canvas
 var bird={
-    x: hinhnenchinh.width/5,
+    x: hinhnenchinh.width/20,
     y: hinhnenchinh.height/2
 }
 var ong=[]; //tạo mảng ống để chứa các ống di chuỷen
@@ -41,7 +41,7 @@ function run(){
         context.drawImage(ongduoi,ong[i].x,ong[i].y+khoangcachdenongduoi);
         // mình lấy vị trí ống trên cộng khoảng cách đến
         // ống dưới vì tí nữa mình random nó lên xuống
-        ong[i].x-=5; //để ống di chuyển
+        ong[i].x-=3; //để ống di chuyển
 
         // lập trình thêm ống khi ống di chuyển đến giữa
         // nó sẽ tạo thêm 1 ống nữa
@@ -76,12 +76,12 @@ function run(){
 
     scoreshow.innerHTML="Score: "+Score;
     // cho bird rơi xuống
-    bird.y+=2;
+    bird.y+=2.6;
     requestAnimationFrame(run);
 }
 //thêm function cho nó bay lên khi nhấn
 document.addEventListener("click",function(){
-    bird.y-=50;   
+    bird.y-=47;   
 })
 // ok khá ổn 
 // các bạn nhớ là tọa độ trên máy tính là ở gốc trên trái đi xuống dưới 
