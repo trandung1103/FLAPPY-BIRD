@@ -18,7 +18,7 @@ var khoangcachhaiong=120; // mình xin phép đặt tên tiếng việt để c�
 var khoangcachdenongduoi; // biến này là khoảng cách từ đầu ống trên đến vị trí đầu ống dưới
 // tạo ra 1 object chim với tọa độ x y là 1 nữa canvas
 var bird={
-    x: hinhnenchinh.width/30,
+    x: 0,
     y: hinhnenchinh.height/2
 }
 var ong=[]; //tạo mảng ống để chứa các ống di chuỷen
