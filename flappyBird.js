@@ -9,11 +9,11 @@ var fg = new Image();
 var pipeNorth = new Image();
 var pipeSouth = new Image();
 
-bird.src = "bird.png";
-bg.src = "bg.png";
-fg.src = "fg.png";
-pipeNorth.src = "pipeNorth.png";
-pipeSouth.src = "pipeSouth.png";
+bird.src = "images/bird.png";
+bg.src = "images/bg.png";
+fg.src = "images/fg.png";
+pipeNorth.src = "images/pipeNorth.png";
+pipeSouth.src = "images/pipeSouth.png";
 
 
 // some variables
@@ -27,22 +27,23 @@ var bY = 150;
 var gravity = 1.5;
 
 var score = 0;
+var dat=cvs.height-fg.height;
 
 // audio files
 
-var fly = new Audio();
-var scor = new Audio();
+// var fly = new Audio();
+// var scor = new Audio();
 
-fly.src = "fly.mp3";
-scor.src = "score.mp3";
+// fly.src = "sounds/fly.mp3";
+// scor.src = "sounds/score.mp3";
 
 // on key down
 
-document.addEventListener("keydown",moveUp);
+document.addEventListener("click",moveUp);
 
 function moveUp(){
     bY -= 25;
-    fly.play();
+    // fly.play();
 }
 
 // pipe coordinates
@@ -59,13 +60,19 @@ pipe[0] = {
 function draw(){
     
     ctx.drawImage(bg,0,0);
-    
-    
     for(var i = 0; i < pipe.length; i++){
         
         constant = pipeNorth.height+gap;
+        
         ctx.drawImage(pipeNorth,pipe[i].x,pipe[i].y);
         ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
+        ctx.drawImage(fg,0,cvs.height - fg.height);
+        ctx.fillStyle = "#000";
+        ctx.font = "20px Verdana";
+        ctx.fillText("Score : "+score,10,cvs.height-20);
+        // ctx.fillText("Restart",10,20);
+        ctx.drawImage(bird,bX,bY);
+
              
         pipe[i].x--;
         
@@ -77,28 +84,28 @@ function draw(){
         }
 
         // detect collision
+        if(bY+bird.height>=cvs.height || bX+bird.width>= pipe[i].x && bX <= pipe[i].x +pipeNorth.width && (bY<=pipe[i].y+pipeNorth.height || bY +bird.height>= pipe[i].y+ constant)  )
+        {
+            location.stop();
+        } 
+        // if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bX + bird.height ==  cvs.height - fg.height){
+        //     location.reload(); // reload the page
+        // }
         
-        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
-            location.reload(); // reload the page
-        }
-        
-        if(pipe[i].x == 5){
+        if(pipe[i].x == bX+bird.width){
             score++;
-            scor.play();
+            // scor.play();
         }
         
         
     }
 
-    ctx.drawImage(fg,0,cvs.height - fg.height);
-    
-    ctx.drawImage(bird,bX,bY);
+
+
     
     bY += gravity;
     
-    ctx.fillStyle = "#000";
-    ctx.font = "20px Verdana";
-    ctx.fillText("Score : "+score,10,cvs.height-20);
+
     
     requestAnimationFrame(draw);
     
