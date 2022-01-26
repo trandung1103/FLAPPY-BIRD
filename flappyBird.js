@@ -9,7 +9,7 @@ var fg = new Image();
 var pipeNorth = new Image();
 var pipeSouth = new Image();
 
-bird.src = "images/bird.png";
+bird.src = "images/chim1.png";
 bg.src = "images/bg.png";
 fg.src = "images/fg.png";
 pipeNorth.src = "images/pipeNorth.png";
@@ -18,13 +18,13 @@ pipeSouth.src = "images/pipeSouth.png";
 
 // some variables
 
-var gap = 85;
+var gap = 140;
 var constant;
 
 var bX = 10;
 var bY = 150;
 
-var gravity = 1.5;
+var gravity = 2;
 
 var score = 0;
 var dat=cvs.height-fg.height;
@@ -42,7 +42,7 @@ var dat=cvs.height-fg.height;
 document.addEventListener("click",moveUp);
 
 function moveUp(){
-    bY -= 25;
+    bY -= 50;
     // fly.play();
 }
 
