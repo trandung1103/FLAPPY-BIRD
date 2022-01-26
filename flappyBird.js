@@ -18,11 +18,11 @@ pipeSouth.src = "images/pipeSouth.png";
 
 // some variables
 
-var gap = 300;
+var gap = 320;
 var constant;
 
-var bX = 100;
-var bY = 560;
+var bX = 10;
+var bY = 150;
 
 var gravity = 4;
 
@@ -42,7 +42,7 @@ var dat=cvs.height-fg.height;
 document.addEventListener("click",moveUp);
 
 function moveUp(){
-    bY -= 110;
+    bY -= 90;
     // fly.play();
 }
 
@@ -92,7 +92,7 @@ function draw(){
         //     location.reload(); // reload the page
         // }
         
-        if(pipe[i].x == bX+bird.width){
+        if(pipe[i].x == (bX+bird.width)*5-700){
             score++;
             // scor.play();
         }
