@@ -18,13 +18,13 @@ pipeSouth.src = "images/pipeSouth.png";
 
 // some variables
 
-var gap = 140;
+var gap = 300;
 var constant;
 
-var bX = 10;
-var bY = 150;
+var bX = 100;
+var bY = 560;
 
-var gravity = 2;
+var gravity = 4;
 
 var score = 0;
 var dat=cvs.height-fg.height;
@@ -42,7 +42,7 @@ var dat=cvs.height-fg.height;
 document.addEventListener("click",moveUp);
 
 function moveUp(){
-    bY -= 50;
+    bY -= 110;
     // fly.play();
 }
 
@@ -68,13 +68,13 @@ function draw(){
         ctx.drawImage(pipeSouth,pipe[i].x,pipe[i].y+constant);
         ctx.drawImage(fg,0,cvs.height - fg.height);
         ctx.fillStyle = "#000";
-        ctx.font = "20px Verdana";
+        ctx.font = "50px Ink Free";
         ctx.fillText("Score : "+score,10,cvs.height-20);
         // ctx.fillText("Restart",10,20);
         ctx.drawImage(bird,bX,bY);
 
              
-        pipe[i].x--;
+        pipe[i].x-=5;
         
         if( pipe[i].x == 125 ){
             pipe.push({
